@@ -1,0 +1,60 @@
+create schema Summative;
+set search_path to Summative,public; 
+set datestyle='ISO,DMY';
+
+DDL:
+
+CREATE TABLE summative.LeadCustomer 
+( 
+CustomerID INTEGER NOT NULL unique, 
+FirstName VARCHAR(20) NOT NULL check (FirstName<> '  '), 
+Surname VARCHAR(40) NOT NULL check (Surname<> '  '), 
+BillingAddress VARCHAR(200) NOT NULL check (BillingAddress<> '  '), 
+email VARCHAR(30) NOT NULL check (email<> '  '), 
+primary key (CustomerID) 
+); 
+
+CREATE TABLE summative.Passenger 
+( 
+PassengerID INTEGER NOT NULL unique, 
+FirstName VARCHAR(20) NOT NULL check (FirstName<> '  '), 
+Surname VARCHAR(40) NOT NULL check (Surname<> '  '), 
+PassportNo VARCHAR(30) NOT NULL unique check (PassportNo<> '  '), 
+Nationality VARCHAR(30) NOT NULL check (Nationality<> '  '), 
+Dob DATE NOT NULL check (Dob<=Current_Date), 
+primary key (PassengerID) 
+); 
+
+CREATE TABLE summative.Flight 
+( 
+FlightID INTEGER NOT NULL unique, 
+FlightDate TIMESTAMP NOT NULL check (FlightDate>=Current_Timestamp), 
+Origin VARCHAR(30) NOT NULL check (Origin<> '  '), 
+Destination VARCHAR(30) NOT NULL check (Destination<> '  '), 
+MaxCapacity INTEGER NOT NULL check (MaxCapacity > 0), 
+PricePerSeat DECIMAL NOT NULL check (PricePerSeat >= 0.0), 
+primary key (FlightID) 
+); 
+
+CREATE TABLE summative.FlightBooking 
+( 
+BookingID INTEGER NOT NULL unique, 
+CustomerID INTEGER NOT NULL, 
+FlightID INTEGER NOT NULL, 
+NumSeats INTEGER NOT NULL check (NumSeats > 0), 
+Status CHAR(1) NOT NULL check (Status='R' or Status='C'),
+BookingTime TIMESTAMP NOT NULL, 
+TotalCost DECIMAL NOT NULL, 
+primary key (BookingID), 
+foreign key (CustomerID) references summative.LeadCustomer on delete cascade on update cascade, 
+foreign key (FlightID) references summative.Flight on delete cascade on update cascade 
+); 
+
+CREATE TABLE summative.SeatBooking 
+( 
+BookingID INTEGER NOT NULL, 
+PassengerID INTEGER NOT NULL, 
+SeatNumber CHAR(4) NOT NULL check (SeatNumber<> '  '), 
+foreign key (BookingID) references summative.FlightBooking on delete cascade on update cascade,
+foreign key (PassengerID) references summative.Passenger on delete cascade on update cascade
+); 

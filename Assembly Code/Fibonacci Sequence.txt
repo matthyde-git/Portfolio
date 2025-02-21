@@ -1,0 +1,31 @@
+################################################################################################################################################################
+# 
+# File: fibonaci.txt
+#
+# Date: 01/11/24
+#
+# Description: Calculates the fibonacci sequence up to 10 values
+#
+################################################################################################################################################################
+
+.text
+
+	main:
+	
+		add $t0, $t0, 0				# i = 0
+		add $t1, $t1, 10			# number of iterations of the for loop
+		
+		add $s0, $s0, 0				# 0 for the fibonacci sequence
+		add $s1, $s1, 1				# 1 for the fibonacci sequence
+		
+	for:	beq $t0, $t1, done		# loop only ends when $t0 (0) = $t1 (10)
+			add $t2, $s1, 0			# copies the value of $s1 in $t2 (saves a copy of the current number in the sequence)
+			add $s1, $s0, $s1		# adds the values of $s0 and $s1 and stores them in $s1	(adds the previous number in the sequence to the current)
+			add $s0, $t2, 0			# copies the value of $t2 in $s0 (stores the previous number in the sequence)
+			add $t0, $t0, 1			# increments the value of $t0 by 1
+			j for					# jumps back to the beginning of the for loop
+	
+	done:
+	
+		li $v0 10    				# ends the program
+		syscall
