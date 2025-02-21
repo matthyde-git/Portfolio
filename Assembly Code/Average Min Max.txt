@@ -1,0 +1,122 @@
+################################################################################################################################################################
+# 
+# File: Average Min Max.txt
+#
+# Date: 01/11/24
+#
+# Description: Calculates the average, min and max values of an array of integers
+#
+################################################################################################################################################################
+
+.data 
+
+	array: .word 1, 2, 3, 4, 5, 6, 7, 8, 9 
+	length: .word 5
+	
+	
+.text 
+
+	main:
+		la $t0, array 											# load address of array
+		li $t1, 0     											# i=0 
+		lw $t2, length 											#store 5 into $t2
+		li $t3, 0 												#sum = 0
+		
+		lw $s0, 0($t0)											# loads array index 0 into $s0
+		lw $s1, 4($t0)											# loads array index 1 into $s1
+		lw $s2, 8($t0)											# loads array index 2 into $s2
+		lw $s3, 12($t0)											# loads array index 3 into $s3
+		lw $s4, 16($t0)											# loads array index 4 into $s4
+				
+		add $t4, $s0, $s1										# adds elements 0 and 1 and stores them in $t4
+		add $t4, $s2, $t4										# adds element 2 to the $t4 value and stores it in $t4
+		add $t4, $s3, $t4										# adds element 3 to the $t4 value and stores it in $t4
+		add $t4, $s4, $t4										# adds element 4 to the $t4 value and stores it in $t4
+		
+		div $t5, $t4, $t2										# divides the sum of the array by the number of elements and stores it in $t5
+		
+		blt $s0, $s1, swapMin									# if $s0 is less than $s1, branch to swapMin
+		j noSwapMin												# else, jump to noSwapMin
+		
+		swapMin:												# swaps the values stored in $s0 and $s1
+			add $t6, $s1, 0										# copies the $s1 value into a temporary register
+			move $s1, $s0										# moves the value of $s0 into $s1
+			move $s0, $t6										# moves the value of $t6 into $s0
+					
+		noSwapMin:												# values are unaffected
+			
+		blt $s1, $s2, swapMin2									# if s1 is less than $s2, branch to swapMin2
+		j noSwapMin2											# else, jump to noSwapMin2
+		
+		swapMin2:												# swaps the values stored in $s1 and $s2
+			add $t6, $s2, 0										# copies the $s2 value into a temporary register
+			move $s2, $s1										# moves the value of $s1 into $s2
+			move $s1, $t6										# moves the value of $t6 into %$s1
+			
+		noSwapMin2:												# values are unaffected
+		
+		blt $s2, $s3, swapMin3									# if s2 is less than $s3, branch to swapMin3
+		j noSwapMin3											# else, jump to noSwapMin3
+		
+		swapMin3:												# swaps the values stored in $s2 and $s3
+			add $t6, $s3, 0										# copies the $s3 value into a temporary register
+			move $s3, $s2										# moves the value of $s2 into $s3
+			move $s2, $t6										# moves the value of $t6 into %$s2
+			
+		noSwapMin3:												# values are unaffected
+			
+		blt $s3, $s4, swapMin4									# if s3 is less than $s4, branch to swapMin4
+		j noSwapMin4											# else, jump to noSwapMin4
+		
+		swapMin4:												# swaps the values stored in $s3 and $s4
+			add $t6, $s4, 0										# copies the $s4 value into a temporary register
+			move $s4, $s3										# moves the value of $s3 into $s4
+			move $s3, $t6										# moves the value of $t6 into %$s3
+			add $t6, $s4, 0										# minimum value, copied into $t6
+			
+		noSwapMin4:												# values are unaffected
+		
+		
+		bgt $s0, $s1, swapMax									# if $s0 is greater than $s1, branch to swapMax
+		j noSwapMax												# else, jump to noSwapMax
+		
+		swapMax:												# swaps the values stored in $s0 and $s1
+			add $t7, $s0, 0										# copies the $s0 value into a temporary register
+			move $s0, $s1										# moves the value of $s1 into $s0
+			move $s1, $t7										# moves the value of $t7 into %$s1
+					
+		noSwapMax:												# values are unaffected
+		
+		bgt $s1, $s2, swapMax2									# if $s1 is greater than $s2, branch to swapMax2
+		j noSwapMax2											# else, jump to noSwapMax2
+		
+		swapMax2:												# swaps the values stored in $s1 and $s2
+			add $t7, $s1, 0										# copies the $s1 value into a temporary register
+			move $s1, $s2										# moves the value of $s2 into $s1
+			move $s2, $t7										# moves the value of $t7 into %$s2
+			
+		noSwapMax2:												#values are unaffected
+		
+		bgt $s2, $s3, swapMax3									# if $s2 is greater than $s3, branch to swapMax3
+		j noSwapMax3											# else, jump to noSwapMax3
+		
+		swapMax3:												# swaps the values stored in $s1 and $s2
+			add $t7, $s2, 0										# copies the $s2 value into a temporary register
+			move $s2, $s3										# moves the value of $s3 into $s2
+			move $s3, $t7										# moves the value of $t7 into %$s3
+					
+		noSwapMax3:												# values are unaffected
+		
+		bgt $s3, $s4, swapMax4									# if $s3 is greater than $s4, branch to swapMax4
+		j noSwapMax4											# else, jump to noSwapMax4
+		
+		swapMax4:												# swaps the values stored in $s1 and $s2
+			add $t7, $s3, 0										# copies the $s3 value into a temporary register
+			move $s3, $s4										# moves the value of $s4 into $s3
+			move $s4, $t7										# moves the value of $t7 into %$s4
+			add $t7, $s4, 0										# maximum value, copied into $t7
+			
+		noSwapMax4:												# values are unaffected
+		
+		li $v0 10     											# end program
+		syscall

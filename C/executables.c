@@ -6,7 +6,6 @@ Date: 05/12/24
 
 Description: This code is for the finding executable files of directories in the Linux operating system
 
-
 *********************************************************************************************************************************************************************************/
 
 #include <stdio.h>
