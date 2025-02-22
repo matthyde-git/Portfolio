@@ -77,6 +77,8 @@
          }
          else return ProductType.STAMP;
      }
+
+     // tests
  /*
      public static void main(String[] args)
      //  method for testing
