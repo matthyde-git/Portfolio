@@ -1,0 +1,3 @@
+# SRC
+
+This folder contains all of the frontends assets, components, features and pages. This folder also contatins the router that is used to route the pages on the client-side using the react-router-dom package and the store that contains the systems main component states. The main.jsx file wraps the application with the Auth0 provider for connecting the system with Auth0, the store and persisted store values for accessing and maintaining state values and the toast container for presenting toast messages within the UI. 

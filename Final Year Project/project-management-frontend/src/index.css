@@ -1,0 +1,1188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: silver;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Beginning of my CSS*/
+
+/* Navbar */
+
+#navBar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+#user-welcome {
+  display: inline;
+  margin-left: 15px;
+}
+
+.user-name {
+  display: inline;
+  text-transform: capitalize;
+}
+
+#user-picture {
+  max-width: 25px;
+  max-height: 25px;
+  display: inline;
+  margin-left: 5px;
+  border-radius: 50%;
+  border: 2px solid silver;
+}
+
+#logout-btn {
+  margin-left: 15px;
+  display: inline;
+}
+
+#nav-drawer {
+  z-index: 300;
+}
+
+/* Landing page*/
+
+#welcome-page {
+  width: 100%;
+}
+
+#welcome-message {
+  position: relative;
+  border-radius: 5px;
+  padding: 0.5%;
+  border: 1px solid silver;
+}
+
+#welcome-title {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.landing-content {
+  position: relative;
+  top: -30px;
+  min-width: 80vw;
+}
+
+.landing-item {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Footer */
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-height: 200px;
+}
+
+#footer-section {
+  width: 320px;
+}
+
+/* Errors Page */
+
+.error {
+  background-color: silver;
+}
+
+.error-img {
+  position: relative;
+  left: 65%;
+  top: -120px;
+}
+
+.error-title {
+  position: relative;
+  left: 90%;
+  color: black;
+  font-size: x-large;
+  padding-right: 5px;
+}
+
+.error-nav {
+  position: relative;
+  left: 100%;
+  font-size: x-large;
+}
+
+.new-error {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Projects/Notifications/Tasks Page */
+
+.box {
+  position: relative;
+  width: 90vw;
+  height: 65vh;
+  top: -4%;
+  border-radius: 5px;
+}
+
+/* Font Change CSS */
+
+.small-font {
+  font-size: small;
+}
+
+.medium {
+  font-size: medium;
+}
+
+.large-font {
+  font-size: large;
+}
+
+.larger-font {
+  font-size: larger;
+}
+
+.x-large-font {
+  font-size: x-large;
+}
+
+/* Settings Page */
+
+#setting-title {
+  padding-bottom: 10%;
+}
+
+.setting-header {
+  size: large;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  font-weight: 700;
+}
+
+.setting-item {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#theme-settings {
+  position: absolute;
+  right: 52%;
+  width: 20%;
+  top: 25%;
+  border-radius: 5px;
+  padding-bottom: 1%;
+}
+
+#font-settings {
+  position: absolute;
+  left: 52%;
+  width: 20%;
+  top: 25%;
+  border-radius: 5px;
+  padding-bottom: 1%;
+}
+
+/* Breadcrumbs */
+
+#breadcrumbs {
+  position: absolute;
+  top: 1.5%;
+  left: 9%;
+  z-index: 11;
+  /* font-size: large; */
+  border-radius: 5px;
+}
+
+/* Projects */
+
+#create-project-btn {
+  position: absolute;
+  bottom: 5%;
+  width: 10%;
+  left: 39%;
+}
+
+.invites-btn {
+  position: absolute;
+  bottom: 5%;
+  right: 39%;
+}
+
+.view-invites-btn {
+  width: 172px;
+}
+
+#view-invites-btn {
+  position: absolute;
+  bottom: 5%;
+  width: 10%;
+  right: 39%;
+}
+
+/* Detailed Projects */
+
+#project-title {
+ margin-top: 10px;
+}
+
+.detailed-prj {
+  height: 64vh;
+  max-height: 69vh;
+}
+
+.prj-progress {
+  position: relative;
+  left: 35%;
+  top: -4.5%;
+}
+
+/* Info Card */
+
+#project-info {
+  position: relative;
+  /* display: flex; */
+  flex-wrap: wrap;
+  flex-direction: column;
+  top: 3%;
+  left: 1%;
+  min-width: 32%;
+  max-width: 32%;
+  padding-top: 15px;
+  border-radius: 5px;
+  height: 95%;
+}
+
+.project-info-btns {
+  position: relative;
+  bottom: 1%;
+  width: 100%;
+}
+
+.info-card-btn {
+  position: relative;
+  bottom: 1%;
+  width: 20%;
+  left: 18%;
+  margin-right: 2%;
+}
+
+.info-card-btn-file {
+  position: relative;
+  width: 25%;
+  left: 23.5%;
+}
+
+.info-card-btn-leave {
+  position: relative;
+  width: 27%;
+  left: 25.5%;
+}
+
+.prg-desc {
+  max-height: 8%;
+}
+
+/* Team Card */
+
+#project-team {
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
+  bottom: 92%;
+  left: 34%;
+  min-width: 32%;
+  max-width: 32%;
+  padding-top: 15px;
+  border-radius: 5px;
+  height: 46.5%;
+}
+
+/* Messages Card */
+
+#project-messages {
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
+  left: 67%;
+  bottom: 231.5%;
+  min-width: 32%;
+  max-width: 32%;
+  padding-top: 15px;
+  border-radius: 5px;
+  height: 46.5%;
+}
+
+/* Risks Card */
+
+#project-risks {
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
+  bottom: 90%;
+  left: 67%;
+  min-width: 32%;
+  max-width: 32%;
+  padding-top: 15px;
+  border-radius: 5px;
+  height: 46.5%;
+}
+
+#project-tasks {
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: column;
+  bottom: 136.5%;
+  left: 34%;
+  min-width: 32%;
+  max-width: 32%;
+  padding-top: 15px;
+  border-radius: 5px;
+  height: 46.5%;
+}
+
+#project-files {
+  position: absolute;
+  top: 56%;
+  right: 1%;
+  min-width: 32%;
+  padding-top: 15px;
+  border-radius: 5px;
+  height: 43%;
+}
+
+.list {
+  max-height: 55%;
+}
+
+.project-btn {
+  width: 20%;
+}
+
+.project-text {
+  padding-bottom: 15px;
+  padding-left: 15px;
+  /* font-size: 22px; */
+}
+
+#task-btn {
+  position: absolute;
+  top: 75%;
+  left: 40%;
+}
+
+#message-btn {
+  position: absolute;
+  top: 75%;
+  left: 40%;
+}
+
+#file-btn {
+  position: absolute;
+  top: 75%;
+  left: 40%;
+}
+
+.modal-btn {
+  width: 33%;
+  position: relative;
+  margin-right: 4%;
+  left: 15%;
+}
+
+.prg-update-btn {
+  position: absolute;
+  width: 18%;
+  left: 29%;
+  bottom: 5%;
+}
+
+.prg-delete-btn {
+  position: absolute;
+  width: 18%;
+  left: 51%;
+  bottom: 5%;
+}
+
+.update-btn {
+  position: relative;
+  width: 18%;
+  top: 10%;
+  margin-right: 2%;
+  left: 31%;
+}
+
+.delete-btn {
+  position: relative;
+  display: inline;
+  left: 13%;
+  min-width: 20%;
+  max-width: 20%;
+  margin-right: 10%;
+}
+
+.form-section {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.update-form-btn {
+  position: relative;
+  width: 20%;
+  left: 40%;
+}
+
+.leave-btn {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+}
+
+.update-task-btn {
+  position: relative;
+  display: inline;
+  bottom: 2%;
+  width: 20%;
+  left: 11%;
+
+}
+
+.join-task {
+  display: inline;
+}
+
+.task-cancel-btn {
+  position: absolute;
+  display: inline;
+  bottom: -35%;
+  width: 20%;
+  left: 29%;
+}
+
+.remove-user-btn {
+  position: relative;
+  margin-top: 5%;
+  width: 20%;
+  left: 40%;
+}
+
+/* Members List */
+
+.member-list {
+  height: 15vh;
+  max-width: 42vw;
+}
+
+.add-btn {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  bottom: 5%;
+}
+
+.remove-modal-text {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.remove-modal-btn {
+  position: relative;
+  margin-top: 5%;
+  width: 20%;
+  left: 29%
+}
+
+.remove-modal-btn-yes {
+  position: absolute;
+  top: 67%;
+  margin-right: 2%;
+  width: 20%;
+  left: 51%
+}
+
+.modal-btns {
+  position: relative;
+  width: 25%;
+  margin-right: 2%;
+}
+
+/* Hidden */
+
+.hidden {
+  display: none;
+}
+
+/* Back buttons */
+
+.back-btn {
+  z-index: 20;
+  position: relative;
+  left: 42%;
+  top: -37.5%;
+}
+
+/* Kanban */
+
+.kanban-board {
+  position: absolute;
+  top: 12%;
+  min-width: 100%;
+  min-height: 69vh;
+  max-height: 69vh;
+}
+
+.kanban-col {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 1.1%;
+  margin-right: 1.1%;
+  width: 31%;
+  min-height: 69vh;
+  max-height: 69vh;
+}
+
+.kanban-card {
+    max-width: 70%;
+  }
+
+.to-do-leader {
+  max-height: 55vh;
+}
+
+.kanban-task {
+  resize: 80%;
+}
+
+.status {
+  display: inline;
+}
+
+.add-task-btn {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  bottom: 5%;
+}
+
+.task-update-btn {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+}
+
+.task-modal-btn {
+  width: 29%;
+  margin-right: 2%;
+}
+
+.delete-modal-btn {
+  position: relative;
+  display: inline;
+  left: 0.5%;
+  min-width: 25%;
+  max-width: 25%;
+  margin-top: 5%;
+  margin-right: 1%;
+}
+
+.invite-btn {
+  position: relative;
+  margin-top: 5%;
+  margin-right: 5%;
+  width: 25%;
+  left: 22.5%;
+}
+
+.team-member {
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.cancel-update-status-btn {
+  position: relative;
+  margin-right: 2%;
+  width: 20%;
+  left: 1%;
+}
+
+.confirm-update-status-btn {
+  position: relative;
+  width: 20%;
+  left: 1%;
+}
+
+/* Notifications */
+
+.notif-clear-btn {
+  position: relative;
+  /* bottom : 5%;
+  width: 16%; */
+  left: 57%;
+}
+
+.notif-confirm-btn {
+  position: relative;
+  margin-top: 5%;
+  margin-right: 2%;
+  width: 20%;
+  left: 29%;
+}
+
+.del-notif-btn {
+  position: relative;
+  left: 70%;
+}
+
+/* Tables */
+
+.tables {
+  max-height: 63vh;
+}
+
+/* Risks */
+
+.risk-btn {
+  position: absolute;
+  bottom: 5%;
+  width: 15%;
+  left: 42.5%;
+}
+
+.risk-modal-btn {
+  position: relative;
+  margin-top: 2%;
+  width: 12%;
+  margin-right: 2%;
+  left: 37%;
+}
+
+.update-risk-btn {
+  position: relative;
+  width: 19%;
+  left: 30%;
+}
+
+.cancel-update-risk-btn {
+  position: relative;
+  width: 19%;
+  left: 30%;
+  margin-right: 2%;
+}
+
+.risk-confirm-btn {
+  margin-top: 5%;
+  position: relative;
+  width: 15%;
+  left: 35%;
+}
+
+.risk-no-btn {
+  margin-top: 5%;
+  position: relative;
+  width: 15%;
+  left: 35%;
+}
+
+/* Chats */
+
+.chat-div {
+  padding-bottom: 1%;
+}
+
+.chat-item {
+  max-width: 49%;
+}
+
+.chat-box {
+  height: 56vh;
+}
+
+.chat-input {
+  position: absolute;
+  left: 14%;
+  top: 58vh;
+}
+
+.chat-btn {
+  position: absolute;
+  left: 100%;
+  top: 24%;
+}
+
+.chat-reply {
+  padding-bottom: 5%;
+}
+
+.chat-msg {
+  padding-top: 5%;
+}
+
+.messages-box {
+  flex-direction: column-reverse;
+}
+
+.modal-msg {
+  margin-bottom: 3%;
+}
+
+.reply-btn {
+  position: relative;
+  width: 30%;
+  left: 35%;
+}
+.reply-form-btn {
+  position: relative;
+  width: 20%;
+  margin-right: 2%;
+  left: 29%;
+}
+
+.del-msg-no {
+  position: relative;
+  margin-top: 1%;
+  width: 20%;
+  left: 28%;
+}
+
+.del-msg-yes {
+  position: absolute;
+  margin-top: 1%;
+  width: 19%;
+  left: 50%;
+  bottom: 9.5%;
+}
+
+.msg-reply {
+  position: relative;
+  margin-top: 1%;
+  width: 20%;
+  left: 17%;
+  margin-right: 2%;
+}
+
+.msg-update {
+  position: relative;
+  margin-top: 1%;
+  width: 20%;
+  left: 17%;
+  margin-right: 2%;
+}
+
+.msg-delete {
+  position: relative;
+  margin-top: 1%;
+  width: 20%;
+  left: 17%;
+  margin-right: 2%;
+}
+
+/* Files */
+
+.file-item {
+  min-width: 100vw;
+}
+
+.download-btn {
+  position: relative;
+  left: 70%;
+}
+
+.file-form {
+  position: relative;
+  top: 16%;
+}
+
+.file-upload-btn {
+  position: absolute;
+  top: 105%;
+  width: 30%;
+  left: 34%;
+}
+
+.del-file-btn { 
+  position: relative;
+  right: -163%;
+}
+
+.del-file-no-btn {
+  margin-top: 5%;
+  position: relative;
+  width: 20%;
+  left: 28.5%;
+}
+
+.del-file-yes-btn {
+  margin-top: 5%;
+  position: relative;
+  width: 20%;
+  left: 30.5%;
+}
+
+/* User Guide */
+
+.guide-img {
+  max-height: 40vh;
+}
+
+.prj-guide-img {
+  display: inline;
+  margin-right: 2%;
+}
+
+/* Search Bar */
+
+.search-title {
+  margin-bottom: 5%;
+}
+
+.question-btn {
+  width: 25%;
+  position: relative;
+  left: 37.5%;
+}
+
+.search-answer {
+  margin-top: 5%;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 1920px)
+{
+    /* Projects Page */
+
+    #project-title {
+      margin-top: 0px;
+    }
+
+    .project-text {
+      padding-bottom: 15px;
+      padding-left: 15px;
+      /* font-size: 13px; */
+    }
+
+    .project-btn {
+      width: 20%;
+    }
+
+    .landing-item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    #breadcrumbs {
+      position: absolute;
+      top: 2%;
+      left: 12%;
+      z-index: 11;
+      /* font-size: large; */
+      border-radius: 5px;
+    }
+
+    #theme-settings {
+      position: absolute;
+      right: 52%;
+      width: 30%;
+      top: 15%;
+      border-radius: 5px;
+      padding-bottom: 1%;
+    }
+    
+    #font-settings {
+      position: absolute;
+      left: 52%;
+      width: 30%;
+      top: 15%;
+      border-radius: 5px;
+      padding-bottom: 1%;
+    }
+}
+
+@media only screen and (max-width: 1900px)
+{
+    /* Projects Page */
+
+    .prj-progress {
+      position: relative;
+      left: 3.5%;
+      top: -3%;
+    }
+
+    #project-title {
+      margin-top: 0px;
+    }
+
+    .project-text {
+      padding-bottom: 15px;
+      padding-left: 15px;
+      /* font-size: 13px; */
+    }
+
+    .project-btn {
+      width: 20%;
+    }
+
+    .landing-content {
+      width: 100vw;
+      display: flex;
+    }
+
+    .landing-item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    #breadcrumbs {
+      position: absolute;
+      top: 2%;
+      left: 12%;
+      z-index: 11;
+      /* font-size: large; */
+      border-radius: 5px;
+    }
+
+    #theme-settings {
+      position: absolute;
+      right: 52%;
+      width: 30%;
+      top: 15%;
+      border-radius: 5px;
+      padding-bottom: 1%;
+    }
+    
+    #font-settings {
+      position: absolute;
+      left: 52%;
+      width: 30%;
+      top: 15%;
+      border-radius: 5px;
+      padding-bottom: 1%;
+    }
+
+    /* Chat */
+
+    .chat-box {
+    height: 50vh;
+  }
+
+    .chat-input {
+      position: absolute;
+      left: 8%;
+      top: 50vh;
+      max-width: 75%;
+    }
+    
+    .chat-btn {
+      position: absolute;
+      left: 100%;
+      top: 23%;
+    }
+
+    #create-project-btn {
+      position: absolute;
+      bottom: 5%;
+      width: 10%;
+      left: 39%;
+    }
+    
+    .invites-btn {
+      position: absolute;
+      bottom: 5%;
+      right: 39%;
+    }
+    
+    .view-invites-btn {
+      width: 120px;
+    }
+    
+    #view-invites-btn {
+      position: absolute;
+      bottom: 5%;
+      width: 10%;
+      right: 39%;
+    }
+
+    .kanban-col {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* margin-left: 1.1%;
+    margin-right: 1.1%; */
+    /* width: 30%; */
+  }
+
+    .kanban-card {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1500px)
+{
+    /* Chat */
+
+    .chat-input {
+      position: absolute;
+      left: 5%;
+      top: 58vh;
+      
+    }
+    
+    .chat-btn {
+      position: absolute;
+      left: 100%;
+      top: 24%;
+    }
+
+    .kanban-col {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* margin-left: 1.1%;
+    margin-right: 1.1%; */
+    /* width: 30%; */
+  }
+
+    .kanban-card {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1300px)
+{
+  .kanban-col {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* margin-left: 1.1%;
+    margin-right: 1.1%; */
+    /* width: 30%; */
+  }
+
+  .kanban-card {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .back-btn {
+      display: none;
+    }
+
+    #user-welcome {
+      display: none;
+    }
+
+    .user-name {
+      display: none;
+    }
+
+    #user-picture {
+      display: none;
+    }
+
+    #breadcrumbs {
+      display: none
+    }
+
+}
+
+@media only screen and (max-width: 750px)
+{
+  .kanban-col {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 65vh;
+    max-height: 65vh;
+    /* margin-left: 1.1%;
+    margin-right: 1.1%; */
+    /* width: 30%; */
+  }
+}
+
+@media only screen and (max-width: 570px)
+{
+  .nav-icon {
+    display: none;
+  }
+}

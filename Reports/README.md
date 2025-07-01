@@ -7,4 +7,5 @@ This folder contains academic reports supported by research identified though Go
     - Justification of chosen technologies
     - Risk analysis
     - Gantt chart
-- A report exploring the role of security policies and their role in organisations, proposes a security policy for a large retail chain with a critical analysis of the proposed policy
+- A report exploring the role of security policies in organisations, proposes a security policy for a large retail chain with a critical analysis of the proposed policy
+- A report investigating the use of generative AI within the systems development industry
